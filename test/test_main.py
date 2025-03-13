@@ -2,10 +2,8 @@ import sys
 import os
 sys.path.append(os.path.abspath('C:/Users/danie/Documents/Repos/general/web3_wallet_analytics/'))
 
-print(sys.path)
 from PyQt5 import QtCore, QtWidgets, uic
-from data.bsc_chain import tokens, wallet_address
-from lib.balances import get_token_balance, get_balances_and_prices
+from lib.balances import get_balances_and_prices
 
 
 
@@ -53,13 +51,9 @@ class MyApp(QtWidgets.QWidget):
         
         # Set text based on token data
         label_id.setText(f"{token['id']}")
-        # label_amount.setText(f"{token['balance']}")
-        # label_balance.setText(f"{token['usdt']}")
-        # label_price.setText(f"{token['price']}")
-
         label_amount.setText(f"{round(token['balance'], 5)}")
-        label_balance.setText(f"{round(token['usdt'], 5)}")
-        label_price.setText(f"{round(token['price'], 5)}")
+        label_balance.setText(f"{round(token['usdt'], 5)}$")
+        label_price.setText(f"{round(token['price'], 5)}$")
 
         return token_widget 
 

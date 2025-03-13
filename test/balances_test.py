@@ -23,7 +23,7 @@ tokens = {
     "BNB": r"0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
     "CAKE": r"0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
     "DOT": r"0x7083609fce4d1d8dc0c979aab8c869ea2c873402",
-    "PEPE": "0x25d887Ce7a35172C62FeBFD67a1856F20FaEbB00",
+    "PEPE": r"0x25d887Ce7a35172C62FeBFD67a1856F20FaEbB00",
 }
 
 # ABI estándar de un token ERC-20/BEP-20 para llamar al método balanceOf
