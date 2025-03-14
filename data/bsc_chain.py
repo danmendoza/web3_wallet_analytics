@@ -4,6 +4,7 @@ from web3 import Web3
 BSC_RPC_URL = "https://bsc-dataseed.binance.org/"  # Nodo público de BSC
 web3 = Web3(Web3.HTTPProvider(BSC_RPC_URL))
 wallet_address = "0x1DE379558E5C3B78412f9B377D89d46666aa8aA3"
+bsc_api_key = 'QYS45WSBSFGZKRSNJ9GDK3XZZHBJRIWTSD'
 
 # Contratos de los tokens BEP-20 en BSC
 tokens = {

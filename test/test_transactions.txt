@@ -1,0 +1,40 @@
+import requests
+import datetime
+
+# BSCscan API endpoint
+api_url = 'https://api.bscscan.com/api'
+
+# Your BSCscan API key
+api_key = 'YourApiKeyToken'
+
+# Wallet address you're interested in
+wallet_address = '0xYourWalletAddress'
+
+# Get the current block number
+current_block = requests.get(f'{api_url}?module=proxy&action=eth_blockNumber&apikey={api_key}').json()['result']
+
+# Calculate the block number for one month ago
+one_month_ago = datetime.datetime.now() - datetime.timedelta(days=30)
+one_month_ago_block = requests.get(f'{api_url}?module=block&action=getblocknobytime&timestamp={int(one_month_ago.timestamp())}&closest=before&apikey={api_key}').json()['result']
+
+# Get the list of transactions for the wall
+# 
+et address
+params = {
+    'module': 'account',
+    'action': 'txlist',
+    'address': wallet_address,
+    'startblock': one_month_ago_block,
+    'endblock': current_block,
+    'sort': 'desc',
+    'apikey': api_key
+}
+response = requests.get(api_url, params=params).json()
+
+# Check if the request was successful
+if response['status'] == '1':
+    transactions = response['result']
+    for tx in transactions:
+        print(tx)
+else:
+    print('Error:', response['message'])
